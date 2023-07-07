@@ -1,13 +1,13 @@
 TODO:
 - More features from Scala's [LinkedList documentation](https://www.scala-lang.org/api/2.12.5/scala/collection/mutable/LinkedList.html) such as
-- - forall
-- - reduce
-- - map
-- - filter
-- - reverse (should be pretty easy)
-- - removeAt (I don't recall what is the corresponding function in Scala for this.)
+  - forall
+  - reduce
+  - map
+  - filter
+  - reverse (should be pretty easy)
+  - removeAt (I don't recall what is the corresponding function in Scala for this.)
 - Makefile
-- - Make valgrind run in debug.
+  - Make valgrind run in debug.
 - Doxygen documentation
 - Make unit tests for different cases (edge cases, common cases, etc.)
 - Research autotools.
