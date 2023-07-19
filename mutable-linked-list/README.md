@@ -6,8 +6,5 @@ TODO:
   - filter
   - reverse (should be pretty easy)
   - removeAt (I don't recall what is the corresponding function in Scala for this.)
-- Makefile
-  - Make valgrind run in debug.
 - Doxygen documentation
 - Make unit tests for different cases (edge cases, common cases, etc.)
-- Research autotools.
