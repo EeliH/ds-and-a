@@ -1,17 +1,48 @@
+#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "Stack.h"
+
+Stack *STACK_Create()
+{
+    Stack *ret = malloc(sizeof(Stack));
+    ret->size = 0;
+    ret->head = NULL;
+    return ret;
+}
+
+void STACK_Free(Stack *stack)
+{
+    Frame *cur = stack->head;
+    while (cur != NULL) {
+        Frame *tmp = cur->next;
+        free(cur);
+        cur = tmp;
+    }
+
+    free(stack);
+}
 
 void STACK_Push(Stack *stack, void *data)
 {
-    MLL_Append(stack, data);
+    Frame *new = malloc(sizeof(Frame));
+    new->data = data;
+    new->next = (stack->head != NULL) ? stack->head : NULL;
+    stack->head = new;
+    ++stack->size;
 }
 
-Element *STACK_Top(Stack *stack)
+void *STACK_Pop(Stack *stack)
 {
-    return MLL_NodeAt(stack, stack->num - 1);
-}
-
-Element *STACK_Pop(Stack *stack)
-{
-    // TODO: Implement
-    return NULL;
+    if (stack->head == NULL) {
+        printf("%s ERROR: stack is empty\n", __func__);
+        return NULL;
+    }
+    Frame *frame = stack->head;
+    void *ret = frame->data;
+    stack->head = frame->next;
+    free(frame);
+    --stack->size;
+    return ret;
 }

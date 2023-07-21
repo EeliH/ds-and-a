@@ -1,16 +1,20 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "MLL.h"
-#include <stddef.h>
+typedef struct Frame {
+  void *data;
+  struct Frame *next;
+} Frame;
 
-typedef MutableLinkedList Stack;
-typedef Node Element;
+typedef struct {
+  int size;
+  Frame *head;
+} Stack;
 
+Stack *STACK_Create();
+void STACK_Free(Stack *list);
 
 void STACK_Push(Stack *stack, void *data);
-
-Element *STACK_Top(Stack *stack);
-Element *STACK_Pop(Stack *stack);
+void *STACK_Pop(Stack *stack);
 
 #endif
