@@ -12,7 +12,7 @@ MLL.o: MLL.c MLL.h
 test.o: test.c
 clean:
 	rm *.o $(EXE)
-valgrind: $(EXE)
+vg: $(EXE)
 	valgrind --leak-check=full ./$(EXE)
 
 .SUFFIXES: .c .o

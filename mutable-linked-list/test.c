@@ -16,6 +16,16 @@ int main()
     MLL_grInitialize(t, 3, (void**) strings);
 
     MLL_Foreach(t, printString);
+    printf("length: %d\n", t->num);
+
+    char *rem = (char *) MLL_RemoveAt(t, 2);
+    printf("just removed: %s\n", rem);
+
+    MLL_Foreach(t, printString);
+    printf("length: %d\n", t->num);
+
+    MLL_Pop(t);
+    MLL_Foreach(t, printString);
 
     MLL_Free(t);
 }
